@@ -1,26 +1,22 @@
 <!-- On crée nos trois balises Template Script Style -->
 <template>
-    <div id="app" class="container-fluid bg-light">
-            <Navbar></Navbar>
+    <div id="app">
+            <router-view></router-view>
     </div>
 
 </template>
 
 <script>
-    import Navbar from "@/components/Navbar";
+    import Home from "@/components/Home";
 
     export default {
-        name:'app',
         components: {
-            Navbar
+            // eslint-disable-next-line vue/no-unused-components
+            Home
         }
     }
 </script>
 
 <style lang="scss">
-    @import "assets/style";
-    @import "~bootstrap";
-    p{
-        font-weight:bold;
-    }
+
 </style>

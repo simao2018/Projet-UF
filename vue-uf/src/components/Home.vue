@@ -59,7 +59,7 @@
 <script>
 
     export default {
-        name : 'Navbar'
+        name : 'Home'
 
     }
 </script>
