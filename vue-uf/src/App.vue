@@ -3,7 +3,7 @@
   <div id="app">
     <nav class="row navbar navbar-expand-lg bg-danger">
       <a class="navbar-brand" href="#">
-        <router-link to="/">Logo</router-link>
+        <router-link to="/">Book Paradise</router-link>
       </a>
       <button
         class="navbar-toggler"
@@ -21,11 +21,10 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">
-              Acheter aux enchères
+              Accueil
               <span class="sr-only">(current)</span>
             </a>
           </li>
-
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -35,13 +34,19 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-            >Les ventes</a>
+            >Enchères en cours</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Livre</a>
+              <a class="dropdown-item" href="#">Bandes dessinés</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Roman</a>
             </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <router-link to="/vendre">Vendre un object</router-link>
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
