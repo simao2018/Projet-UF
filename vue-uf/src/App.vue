@@ -21,7 +21,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">
-              Accueil
+              <router-link to="/home">Accueil</router-link>
               <span class="sr-only">(current)</span>
             </a>
           </li>

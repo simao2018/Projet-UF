@@ -7,7 +7,9 @@ import Login from "./components/Login";
 import Profil from "./components/Profil";
 import Erreur from "./components/Erreur";
 import Register from "./components/Register"
-import vendre from "./components/vendre"
+import Vendre from "./components/Vendre"
+import Encheres from "./components/Encheres"
+
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,7 +27,8 @@ const router = new VueRouter({
     { path: '/register', component: Register },
     { path: '/profil', component: Profil },
     { path: '/erreur', component: Erreur },
-    { path: '/vendre', component: vendre }
+    { path: '/vendre', component: Vendre },
+    { path: '/encheres', component: Encheres }
 
   ]
 });
