@@ -2,24 +2,38 @@
   <div class="hero">
     <div class="form-box">
       <div class="button-box">
-        <button class="toggle-btn btn-active" type="button" v-on:click="goPageLogin">Login</button>
-        <button type="button" v-on:click="goPageRegister" class="toggle-btn">Register</button>
+        <div id="btn"></div>
+        <button type="button" v-on:click="goPageLogin" class="toggle-btn">Login</button>
+        <button type="button" v-on:click="goPageRegister" class="toggle-btn btn-active">Register</button>
       </div>
-      <form id="login" class="input-group">
-        <input type="email" class="input-field" placeholder="Email" v-model="input.email" required />
-        <p v-if="errors.email">{{ errors.email }}</p>
+      <form id="Register" class="input-group">
         <input
-          type="password"
+          type="email"
+          name="email"
           class="input-field"
-          placeholder="Enter Password"
-          v-model="input.password"
+          v-model="input.email"
+          placeholder="Email"
           required
         />
-
-        <input type="checkbox" v-model="input.rememberpassword" class="chech-box" />
-        <span>Remember Password</span>
-
-        <button type="button" v-on:click="submitLogin" class="submit-btn">Log In</button>
+        <input
+          type="password"
+          name="password"
+          class="input-field"
+          v-model="input.password"
+          placeholder="Enter Password"
+          required
+        />
+        <input
+          type="password"
+          name="reconfirmpass"
+          class="input-field"
+          v-model="input.reconfirmpass"
+          placeholder="Enter Password"
+          required
+        />
+        <input type="checkbox" name="terms" v-model="input.terms" class="chech-box" />
+        <span>I agree to the terms & conditions</span>
+        <button type="button" class="submit-btn" v-on:click="submitRegister">Register</button>
       </form>
     </div>
   </div>
@@ -27,13 +41,14 @@
 
 <script>
 export default {
+  name: "Register",
   data() {
     return {
-      errors: [],
       input: {
         email: "",
         password: "",
-        rememberpassword: true
+        reconfirmpass: "",
+        terms: ""
       }
     };
   },
@@ -44,10 +59,8 @@ export default {
     goPageRegister: function() {
       this.$router.push("register");
     },
-    submitLogin: function() {
-      this.errors = [];
-      this.errors.email = "incorrect";
-
+    submitRegister: function() {
+      console.log(this.input);
       return false;
     }
   }
@@ -94,13 +107,11 @@ export default {
   outline: none;
   position: relative;
 }
-
 .btn-active {
   background: linear-gradient(to right, #ff105f, #ffad06);
   border-radius: 30px;
   transition: 0.5s;
 }
-
 .social-icons {
   margin: 30px auto;
   text-align: center;

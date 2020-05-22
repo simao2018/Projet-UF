@@ -1,15 +1,9 @@
 <template>
-    <div>
-        404
-    </div>
+  <div></div>
 </template>
 
 <script>
-    export default {
-        name: "erreur"
-    }
 </script>
 
 <style scoped>
-
 </style>
