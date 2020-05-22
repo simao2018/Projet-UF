@@ -32,4 +32,8 @@ export default {
   min-height: 60px;
   padding-top: 10px;
 }
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+}
 </style>

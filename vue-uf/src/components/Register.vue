@@ -2,9 +2,8 @@
   <div class="hero">
     <div class="form-box">
       <div class="button-box">
-        <div id="btn"></div>
-        <button type="button" v-on:click="goPageLogin" class="toggle-btn">Login</button>
-        <button type="button" v-on:click="goPageRegister" class="toggle-btn btn-active">Register</button>
+        <button type="button" v-on:click="goPageLogin" class="toggle-btn">Se Connecter</button>
+        <button type="button" v-on:click="goPageRegister" class="toggle-btn btn-active">S'inscrire</button>
       </div>
       <form id="Register" class="input-group">
         <input
@@ -12,7 +11,7 @@
           name="email"
           class="input-field"
           v-model="input.email"
-          placeholder="Email"
+          placeholder="Adresse e-mail"
           required
         />
         <input
@@ -20,7 +19,7 @@
           name="password"
           class="input-field"
           v-model="input.password"
-          placeholder="Enter Password"
+          placeholder="Mot de passe"
           required
         />
         <input
@@ -28,11 +27,11 @@
           name="reconfirmpass"
           class="input-field"
           v-model="input.reconfirmpass"
-          placeholder="Enter Password"
+          placeholder="Répeter le mot de passe"
           required
         />
-        <input type="checkbox" name="terms" v-model="input.terms" class="chech-box" />
-        <span>I agree to the terms & conditions</span>
+        <input type="checkbox" name="terms" v-model="input.terms" class="check-box" />
+        <div>j'accepte les termes et conditions</div>
         <button type="button" class="submit-btn" v-on:click="submitRegister">Register</button>
       </form>
     </div>
@@ -74,7 +73,7 @@ export default {
   font-family: sans-serif;
 }
 .hero {
-  height: 100%;
+  height: 580px;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(livre.jpg);
@@ -84,7 +83,7 @@ export default {
 }
 .form-box {
   width: 380px;
-  height: 480px;
+  height: 430px;
   position: relative;
   margin: 6% auto;
   background: #fff;
@@ -93,7 +92,7 @@ export default {
   border-radius: 30px;
 }
 .button-box {
-  width: 220px;
+  width: 320px;
   margin: 35px auto;
   position: relative;
   box-shadow: 0 0 20px 9px #ff61241f;
@@ -110,7 +109,8 @@ export default {
 .btn-active {
   background: linear-gradient(to right, #ff105f, #ffad06);
   border-radius: 30px;
-  transition: 0.5s;
+  transition: 0.9s;
+  width: 50%;
 }
 .social-icons {
   margin: 30px auto;
@@ -126,10 +126,9 @@ export default {
   border-radius: 50%;
 }
 .input-group {
-  top: 180px;
-  position: absolute;
   width: 280px;
   transition: 0.5s;
+  margin: auto;
 }
 .input-field {
   width: 100%;
@@ -146,15 +145,14 @@ export default {
   width: 85%;
   padding: 10px 30px;
   cursor: pointer;
-  margin: 30px 25px;
+  margin: 30px 10px;
   background: linear-gradient(to right, #ff105f, #ffad06);
   border: 0;
   outline: none;
   border-radius: 30px;
 }
 .check-box {
-  padding: 10px 30px;
-  margin: 30px 25px;
+  margin: 5px;
 }
 .spn {
   color: #777;

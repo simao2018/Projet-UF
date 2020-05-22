@@ -49,7 +49,8 @@
         </ul>
         <div class="my-2 my-lg-0">
           <a class="nav-link" href="#">
-            <router-link to="/login">Connexion</router-link>
+            <router-link to="/login">Connexion&emsp;</router-link>|
+            <router-link to="/register">Inscription</router-link>
           </a>
         </div>
       </div>
@@ -91,5 +92,9 @@ nav .nav-link a:hover {
 }
 nav .nav-link:hover {
   color: white;
+}
+.bg-danger {
+  /*background-color: #dc3545!important;*/
+  background: linear-gradient(to right, #ff105f, #ffad06);
 }
 </style>

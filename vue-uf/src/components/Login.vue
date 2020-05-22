@@ -2,8 +2,8 @@
   <div class="hero">
     <div class="form-box">
       <div class="button-box">
-        <button class="toggle-btn btn-active" type="button" v-on:click="goPageLogin">Login</button>
-        <button type="button" v-on:click="goPageRegister" class="toggle-btn">Register</button>
+        <button class="toggle-btn btn-active" type="button" v-on:click="goPageLogin">Se Connecter</button>
+        <button type="button" v-on:click="goPageRegister" class="toggle-btn">S'inscrire</button>
       </div>
       <form id="login" class="input-group">
         <input type="email" class="input-field" placeholder="Email" v-model="input.email" required />
@@ -11,13 +11,12 @@
         <input
           type="password"
           class="input-field"
-          placeholder="Enter Password"
+          placeholder="Mot de passe"
           v-model="input.password"
           required
         />
-
-        <input type="checkbox" v-model="input.rememberpassword" class="chech-box" />
-        <span>Remember Password</span>
+        <input type="checkbox" v-model="input.rememberpassword" class="check-box" />
+        <span>Enregistrer le mot de passe</span>
 
         <button type="button" v-on:click="submitLogin" class="submit-btn">Log In</button>
       </form>
@@ -32,8 +31,7 @@ export default {
       errors: [],
       input: {
         email: "",
-        password: "",
-        rememberpassword: true
+        password: ""
       }
     };
   },
@@ -61,7 +59,7 @@ export default {
   font-family: sans-serif;
 }
 .hero {
-  height: 100%;
+  height: 580px;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(livre.jpg);
@@ -71,7 +69,7 @@ export default {
 }
 .form-box {
   width: 380px;
-  height: 480px;
+  height: 430px;
   position: relative;
   margin: 6% auto;
   background: #fff;
@@ -80,7 +78,7 @@ export default {
   border-radius: 30px;
 }
 .button-box {
-  width: 220px;
+  width: 320px;
   margin: 35px auto;
   position: relative;
   box-shadow: 0 0 20px 9px #ff61241f;
@@ -98,7 +96,8 @@ export default {
 .btn-active {
   background: linear-gradient(to right, #ff105f, #ffad06);
   border-radius: 30px;
-  transition: 0.5s;
+  transition: 0.9s;
+  width: 50%;
 }
 
 .social-icons {
@@ -115,8 +114,6 @@ export default {
   border-radius: 50%;
 }
 .input-group {
-  top: 180px;
-  position: absolute;
   width: 280px;
   transition: 0.5s;
 }
@@ -135,15 +132,14 @@ export default {
   width: 85%;
   padding: 10px 30px;
   cursor: pointer;
-  margin: 30px 25px;
+  margin: 30px 10px;
   background: linear-gradient(to right, #ff105f, #ffad06);
   border: 0;
   outline: none;
   border-radius: 30px;
 }
 .check-box {
-  padding: 10px 30px;
-  margin: 30px 25px;
+  margin: 5px;
 }
 .spn {
   color: #777;
