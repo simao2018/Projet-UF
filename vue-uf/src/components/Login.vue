@@ -62,7 +62,7 @@ export default {
   height: 580px;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(livre.jpg);
+    url("../assets/livre.jpg");
   background-position: center;
   background-size: cover;
   position: absolute;
