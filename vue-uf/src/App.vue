@@ -44,7 +44,9 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Aide</a>
+            <a class="nav-link" href="#">
+              <router-link to="/faq">Faq</router-link>
+            </a>
           </li>
         </ul>
         <div class="my-2 my-lg-0">
