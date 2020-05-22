@@ -36,10 +36,14 @@
               aria-expanded="false"
             >Enchères en cours</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Livre</a>
-              <a class="dropdown-item" href="#">Bandes dessinés</a>
+              <a class="dropdown-item" href="#">
+                <router-link to="/encheres">Livre</router-link>
+              </a>
+              <a class="dropdown-item" href="#">
+                <router-link to="/encheres">Bandes déssines</router-link>
+              </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Roman</a>
+              <a class="dropdown-item" href="#">Romans</a>
             </div>
           </li>
           <li class="nav-item active">
