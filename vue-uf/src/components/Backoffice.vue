@@ -55,7 +55,15 @@
               <td>{{users.users_name}}</td>
               <td>{{users.users_email}}</td>
               <td>{{users.users_test}}</td>
-              <td>{{users.users_age}}</td>
+              <td class="dc">
+                <div class="row">
+                  <span id="af" class="col-5 text-right">
+                    <a href="#" data-toggle="modal" data-target="#edModal">
+                      <i class="ed far fa-edit"></i>
+                    </a>
+                  </span>
+                </div>
+              </td>
             </tr>
             <!-- Modal d'édition -->
             <div
@@ -195,8 +203,7 @@ export default {
             users_id: doc.data().users_id,
             users_name: doc.data().users_name,
             users_email: doc.data().users_email,
-            users_test: doc.data().users_test,
-            users_age: doc.data().users_age
+            users_test: doc.data().users_test
           };
           this.users.push(data);
         });
