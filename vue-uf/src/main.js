@@ -9,7 +9,7 @@ import Erreur from "./components/Erreur";
 import Register from "./components/Register"
 import Vendre from "./components/Vendre"
 import Encheres from "./components/Encheres"
-
+import store from "./store"
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,8 +35,8 @@ const router = new VueRouter({
 });
 
 
-
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
