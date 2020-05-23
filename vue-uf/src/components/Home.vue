@@ -24,8 +24,8 @@
     <div class="row bg-light">
       <div class="container main bg-white">
         <h2>Effectuez vos encheres sur cette page</h2><hr>
-        <div class="row">
-            <div class="col-sm-8">
+        <ul class="row">
+            <li v-for="livre in livres" v-bind:key="livre.id" class="col-sm-8">
                 <div class="card col-sm-11">
                   <div class="card-body">
                     <div class="row">
@@ -33,16 +33,16 @@
 
                         </div>
                         <div class="col-sm-8">
-                          <h5 class="card-title">Titre du livre</h5>
-                          <p class="card-text">Description du livre...</p>
-                          <a href="#" class="btn btn-warning">Faire une offre</a>
+                          <h5 class="card-title">{{livre.titre}}</h5>
+                          <p class="card-text">{{livre.description}}</p>
+                          <router-link v-bind:to="{ name: 'livre', params:{livre_id: livre.livre_id} }" class="btn btn-warning">Faire une offre</router-link>
                         </div>
                     </div>
-
                   </div>
-                </div>
-              </div>
-            </div>
+               </div>
+            </li>
+          
+            </ul>
 
         </div>
       </div>
@@ -50,8 +50,27 @@
 </template>
 
 <script>
+
+import db from "./firebaseInit"
 export default {
-  name: "Home"
+  name: "Home",
+  data: ()=>{
+    return {
+      livres: []
+    }
+  },
+  created(){
+    db.collection('Livres').orderBy('titre').get().then(querySnapshot =>{
+        querySnapshot.forEach(doc => {
+          const data = {
+              'id' : doc.id,
+              'titre': doc.data().titre,
+              'description': doc.data().description
+          }
+          this.livres.push(data);
+        });      
+    });
+  }
 };
 </script>
 
@@ -83,5 +102,9 @@ export default {
   .im{
     background-image: url("../assets/pdf.png");
     background-size: cover;
+  }
+  li{
+    list-style: none;
+    margin-top:30px;
   }
 </style>
