@@ -9,7 +9,12 @@ import Erreur from "./components/Erreur";
 import Register from "./components/Register"
 import Vendre from "./components/Vendre"
 import Encheres from "./components/Encheres"
+import Backoffice from "./components/Backoffice"
+import Newuser from "./components/Newuser"
+import Edituser from "./components/Edituser"
+import Viewuser from "./components/Viewuser"
 
+import store from "./store"
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,14 +34,22 @@ const router = new VueRouter({
     { path: '/profil', component: Profil },
     { path: '/erreur', component: Erreur },
     { path: '/vendre', component: Vendre },
+<<<<<<< HEAD
     { path: '/:id_livre', name: 'livre', component: Encheres }
+=======
+    { path: '/backoffice', component: Backoffice },
+    { path: '/new', component: Newuser },
+    { path: '/edit/:user_id', component: Edituser },
+    { path: '/:user_id', component: Viewuser },
+    { path: '/livre:id', name: 'livre', component: Encheres }
+>>>>>>> fc0e5eb4d5e24a1d524eaeb2f106010c24e87074
 
   ]
 });
 
 
-
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

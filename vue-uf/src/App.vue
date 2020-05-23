@@ -59,21 +59,24 @@
         </ul>
         <div class="my-2 my-lg-0">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <router-link to="/login">Connexion</router-link>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <router-link to="/register">Inscription</router-link>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <router-link to="/login">Log out</router-link>
-              </a>
-            </li>
+            <template v-if="user.loggedIn">
+              <div class="nav-item mr-auto">{{user.data.email}}</div>
+              <li class="nav-item">
+                <a class="nav-link" @click.prevent="signOut">Deconnexion</a>
+              </li>
+            </template>
+            <template v-else>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <router-link to="/login">Connexion</router-link>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <router-link to="/register">Inscription</router-link>
+                </a>
+              </li>
+            </template>
           </ul>
         </div>
       </div>
@@ -84,11 +87,30 @@
 
 <script>
 import Home from "@/components/Home";
+import { mapGetters } from "vuex";
+import firebase from "firebase";
 
 export default {
   components: {
     // eslint-disable-next-line vue/no-unused-components
     Home
+  },
+  computed: {
+    ...mapGetters({
+      user: "user"
+    })
+  },
+  methods: {
+    signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace({
+            name: "home"
+          });
+        });
+    }
   }
 };
 </script>
