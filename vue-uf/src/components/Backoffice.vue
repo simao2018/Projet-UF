@@ -97,15 +97,6 @@
                         <input type="text" class="form-control" name="titre" id="titre" />
                       </div>
 
-                      <div class="form-group">
-                        <label for="titre">nombre de ventes :</label>
-                        <input type="text" class="form-control" name="titre" id="titre" />
-                      </div>
-
-                      <div class="form-group">
-                        <label for="titre">nombre d'encheres :</label>
-                        <input type="text" class="form-control" name="titre" id="titre" />
-                      </div>
                       <input type="hidden" name="id_video" value />
                     </div>
                     <div class="modal-footer">
@@ -140,34 +131,18 @@
               <form method="POST" action="add.php">
                 <div class="modal-body">
                   <div class="form-group">
-                    <label for="titre">Categorie de la video :</label>
-                    <select name="cat" id="cat" class="form-control">
-                      <option value="workshop">Workshop</option>
-                      <option value="reportage">Reportage</option>
-                      <option value="jpo">Journée Porte Ouverte</option>
-                      <option value="konbini">Konbini</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="titre">Source :</label>
-                    <select name="srce" id="srce" class="form-control">
-                      <option value="fbk">Facebook</option>
-                      <option value="ytb">Youtube</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="titre">Titre de la video :</label>
-                    <input type="text" class="form-control" name="titre" id="titre" />
+                    <label for="titre">User Id :</label>
+                    <input type="text" class="form-control" id="titre" />
                   </div>
 
                   <div class="form-group">
-                    <label for="url">Url de la video :</label>
-                    <input type="text" name="url" class="form-control" id="url" />
+                    <label for="url">User Name :</label>
+                    <input type="text" class="form-control" id="url" />
                   </div>
 
                   <div class="form-group">
-                    <label for="desc">Ajouter une description de la video :</label>
-                    <textarea class="form-control" name="desc_vid" id="desc" rows="3"></textarea>
+                    <label for="desc">User Email :</label>
+                    <input type="text" class="form-control" />
                   </div>
                 </div>
                 <div class="modal-footer">
