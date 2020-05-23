@@ -29,7 +29,7 @@ const router = new VueRouter({
     { path: '/profil', component: Profil },
     { path: '/erreur', component: Erreur },
     { path: '/vendre', component: Vendre },
-    { path: '/livre:id', name: 'livre', component: Encheres }
+    { path: '/:id_livre', name: 'livre', component: Encheres }
 
   ]
 });

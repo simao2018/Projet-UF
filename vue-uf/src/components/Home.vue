@@ -33,9 +33,9 @@
 
                         </div>
                         <div class="col-sm-8">
-                          <h5 class="card-title">{{livre.titre}}</h5>
+                          <h5 class="card-title">{{livre.titre}}: {{ livre.livre_id }}</h5>
                           <p class="card-text">{{livre.description}}</p>
-                          <router-link v-bind:to="{ name: 'livre', params:{livre_id: livre.livre_id} }" class="btn btn-warning">Faire une offre</router-link>
+                          <router-link :to="{name: 'livre', params: {id_livre : livre.id_livre}}" class="btn btn-warning">Faire une offre</router-link>
                         </div>
                     </div>
                   </div>
@@ -64,6 +64,7 @@ export default {
         querySnapshot.forEach(doc => {
           const data = {
               'id' : doc.id,
+              'id_livre': doc.data().id_livre,
               'titre': doc.data().titre,
               'description': doc.data().description
           }
