@@ -6,9 +6,10 @@ import Faq from "./components/Faq";
 import Login from "./components/Login";
 import Profil from "./components/Profil";
 import Erreur from "./components/Erreur";
-import Register from "./components/Register"
-import Vendre from "./components/Vendre"
-import Encheres from "./components/Encheres"
+import Register from "./components/Register";
+import Vendre from "./components/Vendre";
+import Encheres from "./components/Encheres";
+import Backoffice from "./components/Backoffice";
 
 import store from "./store"
 
@@ -30,7 +31,9 @@ const router = new VueRouter({
     { path: '/profil', component: Profil },
     { path: '/erreur', component: Erreur },
     { path: '/vendre', component: Vendre },
+    { path: '/backoffice', component: Backoffice },
     { path: '/:id_livre', name: 'livre', component: Encheres }
+    
   ]
 });
 
