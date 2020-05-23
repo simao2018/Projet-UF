@@ -14,7 +14,7 @@
       </div>
       <div class="col-sm-2">
         <div class="row">
-          <button type="button" class="btn btn-danger col-sm-12">Valider</button>
+          <button type="button" class="btn btn-warning col-sm-12">Valider</button>
         </div>
       </div>
     </div>
@@ -29,13 +29,13 @@
                 <div class="card col-sm-11">
                   <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-3 border">
-                          aa
+                        <div class="col-sm-3 border im">
+
                         </div>
                         <div class="col-sm-8">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn">Go somewhere</a>
+                          <h5 class="card-title">Titre du livre</h5>
+                          <p class="card-text">Description du livre...</p>
+                          <a href="#" class="btn btn-warning">Faire une offre</a>
                         </div>
                     </div>
 
@@ -64,7 +64,7 @@ export default {
   min-height: 180px;
   background-image: url("../assets/livre.jpg");
 }
-.btn:not(:disabled):not(.disabled) {
+.btn2:not(:disabled):not(.disabled) {
   cursor: pointer;
   background: linear-gradient(to right, #ff105f, #ffad06);
 }
@@ -79,5 +79,9 @@ export default {
     border-radius:20px 20px;
     margin-top: -80px;
     padding: 50px;
+  }
+  .im{
+    background-image: url("../assets/pdf.png");
+    background-size: cover;
   }
 </style>
