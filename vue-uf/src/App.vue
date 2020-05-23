@@ -60,9 +60,9 @@
         <div class="my-2 my-lg-0">
           <ul class="navbar-nav mr-auto">
             <template v-if="user.loggedIn">
-              <div class="nav-item">{{user.data.email}}</div>
+              <div class="nav-item mr-auto">{{user.data.email}}</div>
               <li class="nav-item">
-                <a class="nav-link" @click.prevent="signOut">Sign out</a>
+                <a class="nav-link" @click.prevent="signOut">Deconnexion</a>
               </li>
             </template>
             <template v-else>
