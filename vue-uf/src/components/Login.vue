@@ -6,16 +6,15 @@
         <button type="button" v-on:click="goPageRegister" class="toggle-btn">S'inscrire</button>
       </div>
       <form id="login" class="input-group">
-        <input type="email" class="input-field" placeholder="Email" v-model="input.email" required />
-        <p v-if="errors.email">{{ errors.email }}</p>
+        <input type="email" class="input-field" placeholder="Email" v-model="email" required />
         <input
           type="password"
           class="input-field"
           placeholder="Mot de passe"
-          v-model="input.password"
+          v-model="password"
           required
         />
-        <input type="checkbox" v-model="input.rememberpassword" class="check-box" />
+        <input type="checkbox" class="check-box" />
         <span>Enregistrer le mot de passe</span>
 
         <button type="button" v-on:click="submitLogin" class="submit-btn">Log In</button>
@@ -25,14 +24,13 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
+  name: "login",
   data() {
     return {
-      errors: [],
-      input: {
-        email: "",
-        password: ""
-      }
+      email: "",
+      password: ""
     };
   },
   methods: {
@@ -42,11 +40,20 @@ export default {
     goPageRegister: function() {
       this.$router.push("register");
     },
-    submitLogin: function() {
-      this.errors = [];
-      this.errors.email = "incorrect";
-
-      return false;
+    submitLogin: function(e) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(
+          user => {
+            alert(`You are logged in as ${user.email}`);
+            this.$router.push("home");
+          },
+          err => {
+            alert(err.message);
+          }
+        );
+      e.preventDefault();
     }
   }
 };

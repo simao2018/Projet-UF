@@ -58,10 +58,23 @@
           </li>
         </ul>
         <div class="my-2 my-lg-0">
-          <a class="nav-link" href="#">
-            <router-link to="/login">Connexion&emsp;</router-link>|
-            <router-link to="/register">Inscription</router-link>
-          </a>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <router-link to="/login">Connexion</router-link>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <router-link to="/register">Inscription</router-link>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <router-link to="/login">Log out</router-link>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
