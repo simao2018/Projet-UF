@@ -10,7 +10,7 @@
           type="email"
           name="email"
           class="input-field"
-          v-model="input.email"
+          v-model="email"
           placeholder="Adresse e-mail"
           required
         />
@@ -18,19 +18,11 @@
           type="password"
           name="password"
           class="input-field"
-          v-model="input.password"
+          v-model="password"
           placeholder="Mot de passe"
           required
         />
-        <input
-          type="password"
-          name="reconfirmpass"
-          class="input-field"
-          v-model="input.reconfirmpass"
-          placeholder="Répeter le mot de passe"
-          required
-        />
-        <input type="checkbox" name="terms" v-model="input.terms" class="check-box" />
+        <input type="checkbox" name="terms" class="check-box" />
         <div>j'accepte les termes et conditions</div>
         <button type="button" class="submit-btn" v-on:click="submitRegister">Register</button>
       </form>
@@ -39,16 +31,13 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
   name: "Register",
   data() {
     return {
-      input: {
-        email: "",
-        password: "",
-        reconfirmpass: "",
-        terms: ""
-      }
+      email: "",
+      password: ""
     };
   },
   methods: {
@@ -58,9 +47,21 @@ export default {
     goPageRegister: function() {
       this.$router.push("register");
     },
-    submitRegister: function() {
-      console.log(this.input);
-      return false;
+    submitRegister: function(e) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(
+          user => {
+            // console.log(user);
+            alert(`Account Created for ${user.email}`);
+            this.$router.push("home");
+          },
+          err => {
+            alert(err.message);
+          }
+        );
+      e.preventDefault();
     }
   }
 };
