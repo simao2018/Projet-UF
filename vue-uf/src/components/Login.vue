@@ -47,6 +47,7 @@ export default {
         .then(
           user => {
             alert(`You are logged in as ${user.email}`);
+            // console.log(user);
             this.$router.push("home");
           },
           err => {
