@@ -63,7 +63,10 @@
           <ul class="navbar-nav mr-auto">
             <template v-if="user.loggedIn">
               <li class="nav-item mr-auto">
-                 <router-link class="nav-link" :to="{ name: 'profil', params :{ id_login:currentId} }">{{ currentUser }}</router-link>
+                <router-link
+                  class="nav-link"
+                  :to="{ name: 'profil', params :{ id_login:currentId} }"
+                >{{ currentUser }}</router-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout" @click.prevent="signOut">Deconnexion</a>
@@ -112,7 +115,7 @@ export default {
       user: "user"
     })
   },
-  created(){
+  created() {
     var user = firebase.auth().currentUser;
 
     if (user) {
@@ -130,7 +133,6 @@ export default {
     } else {
       // No user is signed in.
     }
- 
   },
   methods: {
     signOut() {

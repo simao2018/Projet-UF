@@ -58,9 +58,7 @@
               <td>{{users.users_email}}</td>
               <td class="dc">
                 <div class="row">
-                  <router-link
-                    v-bind:to="{name:'view-user', params:{users_id: users.users_id}}"
-                  >View</router-link>
+                  <router-link v-bind:to="{name:'view-user', params:{idUser: users.users_id}}">View</router-link>
                 </div>
               </td>
             </tr>
@@ -90,11 +88,9 @@ export default {
         querySnapshot.forEach(doc => {
           console.log(doc.data());
           const data = {
-            id: doc.id,
-            users_id: doc.data().users_id,
+            users_id: doc.id,
             users_name: doc.data().users_name,
-            users_email: doc.data().users_email,
-            users_test: doc.data().users_test
+            users_email: doc.data().users_email
           };
           this.users.push(data);
         });

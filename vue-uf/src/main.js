@@ -33,11 +33,11 @@ const router = new VueRouter({
     { path: '/faq', component: Faq },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
-    { path: '/profil:id_login', name: 'profil',  component: Profil },
+    { path: '/profil/:id_login', name: 'profil', component: Profil },
     { path: '/erreur', component: Erreur },
     { path: '/vendre', component: Vendre },
     { path: '/backoffice', component: Backoffice },
-    { path: '/viewuser', name: 'view-user', component: Viewuser },
+    { path: '/viewuser/:idUser', name: 'view-user', component: Viewuser },
     { path: '/newuser', name: 'new-user', component: Newuser },
     { path: '/:id_livre', name: 'livre', component: Encheres }
 
@@ -46,7 +46,7 @@ const router = new VueRouter({
 
 let app;
 firebase.auth().onAuthStateChanged(user => {
-  if(!app){
+  if (!app) {
     app = new Vue({
       router,
       store,
