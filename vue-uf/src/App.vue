@@ -99,7 +99,7 @@ export default {
   data: () => {
     return {
       users : [],
-      currentUser : false,
+      currentUser : null,
       currentId : null
     }
   },
@@ -120,14 +120,9 @@ export default {
       // this.users.push(user.email);
       db.collection('users').where('users_email','==',this.currentUser).get().then(querySnapshot =>{
         querySnapshot.forEach(doc => {
-          const data = {
-              'id' : doc.id,
-              'users_id':doc.data().users_id,
-              'users_email': doc.data().users_email,
-              'users_name': doc.data().users_name
-          }
-          this.users.push(data);
-          this.currentId = this.users[0].users_id;
+         
+          console.log(doc.data().users_id);
+          this.currentId = doc.data().users_id;
           console.log(this.currentId);
         });      
     });
