@@ -7,14 +7,14 @@
             <li class="nav-item">
               <a class="nav-link active" href="#">
                 <span data-feather="home"></span>
-                Utilisateurs
+                Ventes
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/backoffice2">
+              <a class="nav-link" href="/backoffice">
                 <span data-feather="file"></span>
-                Ventes
+                Utilisateurs
               </a>
             </li>
           </ul>
@@ -25,7 +25,7 @@
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
         >
-          <h1 class="h2">Tableau de bord - Utilisateurs</h1>
+          <h1 class="h2">Tableau de bord - Ventes</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
               <button
@@ -45,9 +45,12 @@
         <table class="table table-bordered">
           <thead class="thead-light">
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">email</th>
+              <th scope="col">vente_id</th>
+              <th scope="col">vente_title</th>
+              <th scope="col">vente_desc</th>
+              <th scope="col">vente_firstprice</th>
+              <th scope="col">Vente_lastprice</th>
+              <th scope="col">users_id</th>
             </tr>
           </thead>
           <tbody>

@@ -13,6 +13,7 @@ import Backoffice from "./components/Backoffice";
 import firebase from "firebase"
 import Viewuser from "./components/Viewuser";
 import Newuser from "./components/Newuser";
+import Backoffice2 from "./components/Backoffice2";
 
 import store from "./store"
 
@@ -39,6 +40,7 @@ const router = new VueRouter({
     { path: '/backoffice', component: Backoffice },
     { path: '/viewuser/:idUser', name: 'view-user', component: Viewuser },
     { path: '/newuser', name: 'new-user', component: Newuser },
+    { path: '/backoffice2', component: Backoffice2 },
     { path: '/:id_livre', name: 'livre', component: Encheres }
 
   ]
