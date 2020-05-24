@@ -33,7 +33,11 @@
                 class="btn btn-sm btn-outline-secondary"
                 data-toggle="modal"
                 data-target="#addModal"
-              >Ajouter Un Utilisateurs</button>
+              >
+                <router-link to="/newuser" class="btn-floating btn-large red">
+                  <i class="fa fa-plus"></i>
+                </router-link>
+              </button>
             </div>
           </div>
         </div>

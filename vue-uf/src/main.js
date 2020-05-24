@@ -11,6 +11,7 @@ import Vendre from "./components/Vendre";
 import Encheres from "./components/Encheres";
 import Backoffice from "./components/Backoffice";
 import Viewuser from "./components/Viewuser";
+import Newuser from "./components/Newuser";
 
 import store from "./store"
 
@@ -34,6 +35,7 @@ const router = new VueRouter({
     { path: '/vendre', component: Vendre },
     { path: '/backoffice', component: Backoffice },
     { path: '/viewuser', name: 'view-user', component: Viewuser },
+    { path: '/newuser', name: 'new-user', component: Newuser },
     { path: '/:id_livre', name: 'livre', component: Encheres }
 
   ]

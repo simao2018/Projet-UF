@@ -10,7 +10,7 @@
     <button type="button" class="btn btn-primary">
       <router-link to="/backoffice" class="btn grey">Back</router-link>
     </button>
-    <button type="button" class="btn grey" @click="deleteUser">Delete</button>
+    <button @click="deleteUser" type="button" class="btn grey">Delete</button>
   </div>
 </template>
 
