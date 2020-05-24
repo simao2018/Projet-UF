@@ -2,9 +2,15 @@
   <div class="form-box">
     <form @submit.prevent="saveUser" class="input-group" id="login">
       <h3>Ajouter un utilisateur</h3>
-      <input type="id" class="input-field" placeholder="Id" v-model="users_id" required />
       <input type="name" class="input-field" placeholder="Name" v-model="users_name" required />
       <input type="email" class="input-field" placeholder="Email" v-model="users_email" required />
+      <input
+        type="password"
+        class="input-field"
+        placeholder="Email"
+        v-model="users_password"
+        required
+      />
 
       <button type="submit" class="submit-btn">Ajouter</button>
       <router-link to="/backoffice" class="submit-btn">Cancel</router-link>
@@ -13,31 +19,45 @@
 </template>
 
 <script>
+import firebase from "firebase";
 import db from "./firebaseInit";
+
 export default {
   name: "new-user",
   data() {
     return {
-      users_id: null,
       users_name: null,
-      users_email: null
+      users_email: null,
+      users_password: null
     };
   },
   methods: {
     saveUser() {
-      db.collection("users")
-        .add({
-          users_id: this.users_id,
-          users_name: this.users_name,
-          users_email: this.users_email
-        })
-        .then(docRef => {
-          console.log("Client added: ", docRef.id);
-          this.$router.push("/backoffice");
-        })
-        .catch(error => {
-          console.error("Error adding users: ", error);
-        });
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.users_email, this.users_password)
+        .then(
+          user => {
+            console.log(user);
+            db.collection("users")
+              .add({
+                users_name: this.users_name,
+                users_email: this.users_email,
+                users_password: this.users_password
+              })
+              .then(docRef => {
+                console.log("Client added: ", docRef.id);
+                this.$router.push("/backoffice");
+              })
+              .catch(error => {
+                console.error("Error adding users: ", error);
+              });
+            this.$router.push("/");
+          },
+          err => {
+            alert(err.message);
+          }
+        );
     }
   }
 };

@@ -4,13 +4,14 @@
       <li class="collection-header">
         <h4>{{users_name}}</h4>
       </li>
-      <li class="collection-item">User ID#: {{users_id}}</li>
+
       <li class="collection-item">Email: {{users_email}}</li>
     </ul>
     <button type="button" class="btn btn-primary">
       <router-link to="/backoffice" class="btn grey">Back</router-link>
     </button>
-    <button @click="deleteUser" type="button" class="btn grey">Delete</button>
+
+    <button @click="deleteUser" class="btn red">Delete</button>
   </div>
 </template>
 
@@ -25,46 +26,42 @@ export default {
       users_email: null
     };
   },
-  beforeRouteEnter(to, from, next) {
-    db.collection("users")
-      .where("users_id", "==", to.params.users_id)
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          next(vm => {
-            vm.users_id = doc.data().users_id;
-            vm.users_name = doc.data().users_name;
-            vm.users_email = doc.data().users_email;
-          });
-        });
-      });
+  created() {
+    // fetch the data when the view is created and the data is
+    // already being observed
+    this.fetchDataa();
   },
   watch: {
+    // call again the method if the route changes
     $route: "fetchDataa"
   },
   methods: {
     fetchDataa() {
-      db.collection("employees")
-        .where("users_id", "==", this.$route.params.users_id)
+      db.collection("users")
+        .doc(this.$route.params.idUser)
         .get()
-        .then(querySnapshot => {
-          querySnapshot.forEach(doc => {
-            this.users_id = doc.data().users_id;
-            this.users_name = doc.data().users_name;
-            this.users_email = doc.data().users_email;
-          });
+        .then(snapshot => {
+          if (!snapshot.exists) {
+            // Si l'utilisateur n'existe pas, faut rediriger vers la page d'acceuil
+            this.$router.push("/");
+          } else {
+            let data = snapshot.data(); //
+            this.users_id = this.$route.params.idUser;
+            this.users_name = data.users_name;
+            this.users_email = data.users_email;
+          }
         });
     },
     deleteUser() {
       if (confirm("Are you sure?")) {
         db.collection("users")
-          .where("users_id", "==", this.$route.params.users_id)
-          .get()
-          .then(querySnapshot => {
-            querySnapshot.forEach(doc => {
-              doc.ref.delete();
-              this.$router.push("/backoffice");
-            });
+          .doc(this.users_id)
+          .delete()
+          .then(() => {
+            console.log("Document successfully deleted!");
+          })
+          .catch(error => {
+            console.error("Error removing document: ", error);
           });
       }
     }

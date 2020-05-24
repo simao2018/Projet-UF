@@ -7,6 +7,14 @@
       </div>
       <form id="Register" class="input-group">
         <input
+          type="text"
+          name="Name"
+          class="input-field"
+          v-model="users_name"
+          placeholder="Nom complet"
+          required
+        />
+        <input
           type="email"
           name="email"
           class="input-field"
@@ -32,12 +40,15 @@
 
 <script>
 import firebase from "firebase";
+import db from "./firebaseInit";
+
 export default {
   name: "Register",
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      users_name: ""
     };
   },
   methods: {
@@ -47,13 +58,25 @@ export default {
     goPageRegister: function() {
       this.$router.push("register");
     },
+
     submitRegister: function(e) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-            // console.log(user);
+            var userData = firebase.auth().currentUser;
+            db.collection("users")
+              .add({
+                users_name: this.users_name,
+                users_email: userData.email
+              })
+              .then(docRef => {
+                console.log("Client added: ", docRef);
+              })
+              .catch(error => {
+                console.error("Error adding users: ", error);
+              });
             alert(`Account Created for ${user.email}`);
             this.$router.push("/");
           },
