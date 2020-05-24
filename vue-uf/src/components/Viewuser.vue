@@ -1,17 +1,21 @@
 <template>
-  <div id="view-employee">
-    <ul class="collection with-header">
-      <li class="collection-header">
-        <h4>{{users_name}}</h4>
-      </li>
+  <div class="form-box">
+    <div id="view-employee">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <h4>{{users_name}}</h4>
+        </li>
 
-      <li class="collection-item">Email: {{users_email}}</li>
-    </ul>
-    <button type="button" class="btn btn-primary">
-      <router-link to="/backoffice" class="btn grey">Back</router-link>
-    </button>
+        <li class="collection-item">Email: {{users_email}}</li>
+      </ul>
+      <button type="button" class="btn btn-primary">
+        <router-link to="/backoffice" class="btn grey">Back</router-link>
+      </button>
 
-    <button @click="deleteUser" class="btn red">Delete</button>
+      <button @click="deleteUser" type="button" class="btn btn-secondary">
+        <router-link to="/backoffice" class="btn grey">Delete</router-link>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -68,3 +72,16 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.form-box {
+  width: 380px;
+  height: 430px;
+  position: relative;
+  margin: 6% auto;
+  background: #fff;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 30px;
+}
+</style>

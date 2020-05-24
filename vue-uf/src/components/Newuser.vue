@@ -5,9 +5,9 @@
       <input type="name" class="input-field" placeholder="Name" v-model="users_name" required />
       <input type="email" class="input-field" placeholder="Email" v-model="users_email" required />
       <input
-        type="password"
+        type="text"
         class="input-field"
-        placeholder="Email"
+        placeholder="Password"
         v-model="users_password"
         required
       />
