@@ -10,7 +10,7 @@ import Register from "./components/Register";
 import Vendre from "./components/Vendre";
 import Encheres from "./components/Encheres";
 import Backoffice from "./components/Backoffice";
-
+import firebase from "firebase"
 import store from "./store"
 
 import 'bootstrap';
@@ -21,6 +21,8 @@ Vue.use(VueRouter);
 
 Vue.config.productionTip = false
 
+
+
 const router = new VueRouter({
   mode: 'history',
   routes: [
@@ -28,7 +30,7 @@ const router = new VueRouter({
     { path: '/faq', component: Faq },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
-    { path: '/profil', name: 'profil',  component: Profil },
+    { path: '/profil:id_login', name: 'profil',  component: Profil },
     { path: '/erreur', component: Erreur },
     { path: '/vendre', component: Vendre },
     { path: '/backoffice', component: Backoffice },
@@ -37,9 +39,16 @@ const router = new VueRouter({
   ]
 });
 
+let app;
+firebase.auth().onAuthStateChanged(user => {
+  if(!app){
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app');
+    console.log(user);
+  }
+})
 
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app')
+

@@ -47,7 +47,9 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">
-              <router-link to="/vendre">Vendre un object</router-link>
+              <template v-if="user.loggedIn">
+                <router-link to="/vendre">Vendre un livre</router-link>
+              </template>
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -61,7 +63,7 @@
           <ul class="navbar-nav mr-auto">
             <template v-if="user.loggedIn">
               <li class="nav-item mr-auto">
-                 <router-link class="nav-link" to="/profil">{{user.data.email}}</router-link>
+                 <router-link class="nav-link" :to="{ name: 'profil', params :{ id_login:currentId} }">{{ currentUser }}</router-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout" @click.prevent="signOut">Deconnexion</a>
@@ -91,10 +93,14 @@
 import Home from "@/components/Home";
 import { mapGetters } from "vuex";
 import firebase from "firebase";
+import db from "./components/firebaseInit";
+
 export default {
   data : ()=>{
     return {
-      users : []
+      users : [],
+      currentUser : false,
+      currentId : null
     }
   },
   components: {
@@ -105,7 +111,31 @@ export default {
     ...mapGetters({
       user: "user"
     })
-    
+  },
+  created(){
+    var user = firebase.auth().currentUser;
+
+    if (user) {
+      this.currentUser = user.email;
+      // this.users.push(user.email);
+      db.collection('users').where('users_email','==',this.currentUser).get().then(querySnapshot =>{
+        querySnapshot.forEach(doc => {
+          const data = {
+              'id' : doc.id,
+              'users_id':doc.data().users_id,
+              'users_email': doc.data().users_email,
+              'users_name': doc.data().users_name
+          }
+          this.users.push(data);
+          this.currentId = this.users[0].users_id;
+          console.log(this.currentId);
+        });      
+    });
+      console.log(this.currentUser);
+    } else {
+      // No user is signed in.
+    }
+ 
   },
   methods: {
     signOut() {

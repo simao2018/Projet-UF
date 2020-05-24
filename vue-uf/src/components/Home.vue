@@ -69,6 +69,7 @@ export default {
               'description': doc.data().description
           }
           this.livres.push(data);
+         // console.log(this.livres);
         });      
     });
   }

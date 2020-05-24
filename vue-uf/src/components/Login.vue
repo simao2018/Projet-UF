@@ -14,8 +14,6 @@
           v-model="password"
           required
         />
-        <input type="checkbox" class="check-box" />
-        <span>Enregistrer le mot de passe</span>
 
         <button type="button" v-on:click="submitLogin" class="submit-btn">Log In</button>
       </form>

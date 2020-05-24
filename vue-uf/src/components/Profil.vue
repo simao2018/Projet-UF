@@ -9,8 +9,8 @@
                 <div class="media align-items-end profile-header">
                     <div class="profile mr-3"><img src="https://pixabay.com/get/5fe7d6474c52b10ff3d89960c62d3e7e173ad9ec5159_640.png" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Mettre a jour profil</a></div>
                     <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">Noms</h4>
-                        <p class="small mb-4">login</p>
+                        <h4 class="mt-0 mb-0">{{ users_name }}</h4>
+                        <p class="small mb-4">{{ users_email }}</p>
                     </div>
                 </div>
             </div>
@@ -43,9 +43,45 @@
 </template>
 
 <script>
-    export default {
-        name: "Profil"
+import db from './firebaseInit';
+export default {
+  name: "Profil",
+  data: ()=>{
+    return {
+      users_id : null,
+      users_name: null,
+      users_email: null
     }
+  },
+  beforeRouteEnter(to, from, next){
+    db.collection('users').where('users_id','==',to.params.id_login).get()
+    .then(querySnapchot => {
+      querySnapchot.forEach(doc =>{
+        next(vm => {
+          vm.users_id = doc.data().users_id
+          vm.users_name = doc.data().users_name
+          vm.users_email = doc.data().users_email
+        })
+      })
+    })
+  },
+  watch : {
+    '$route': 'fetchData'
+  },
+  methods:{
+    fetchData(){
+      db.collection('users').where('users_id','==',this.$route.params.users_id).get()
+      .then(querySnapchot =>{
+        querySnapchot.forEach(doc => {
+              
+              this.users_id = doc.data().users_id,
+              this.users_name = doc.data().users_name,
+              this.users_email =  doc.data().users_email
+        })
+      })
+    }
+  }
+};
 </script>
 
 <style scoped>

@@ -18,6 +18,27 @@
         </div>
       </div>
     </div>
+    <div class="container" style="margin-top:50px;text-align:center;">
+        <div class="row">
+          <div class="col-12">
+            <h1>Vendre un livre</h1>
+          </div>
+          <div class="row">
+              <div class="col-5">      
+                <div class="form-group">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+          </div>
+          
+        </div>
+            
+    </div>
   </div>
 </template>
 
