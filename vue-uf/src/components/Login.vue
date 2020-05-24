@@ -25,6 +25,7 @@
 
 <script>
 import firebase from "firebase";
+
 export default {
   name: "login",
   data() {
@@ -44,11 +45,9 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
-            alert(`You are logged in as ${user.email}`);
-            // console.log(user);
-            this.$router.push("home");
+        .then( user => {
+             console.log(user);
+            this.$router.push("/");
           },
           err => {
             alert(err.message);

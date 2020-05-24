@@ -28,7 +28,7 @@ const router = new VueRouter({
     { path: '/faq', component: Faq },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
-    { path: '/profil', component: Profil },
+    { path: '/profil', name: 'profil',  component: Profil },
     { path: '/erreur', component: Erreur },
     { path: '/vendre', component: Vendre },
     { path: '/backoffice', component: Backoffice },
