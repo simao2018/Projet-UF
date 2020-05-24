@@ -12,7 +12,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="image.php">
+              <a class="nav-link" href="/login">
                 <span data-feather="file"></span>
                 Livres
               </a>
@@ -44,8 +44,6 @@
               <th scope="col">Id</th>
               <th scope="col">Name</th>
               <th scope="col">email</th>
-              <th scope="col">nb de vente</th>
-              <th scope="col">nb enchéres</th>
             </tr>
           </thead>
           <tbody>
@@ -54,105 +52,19 @@
               <td>{{users.users_id}}</td>
               <td>{{users.users_name}}</td>
               <td>{{users.users_email}}</td>
-              <td>{{users.users_test}}</td>
               <td class="dc">
                 <div class="row">
-                  <span id="af" class="col-5 text-right">
-                    <a href="#" data-toggle="modal" data-target="#edModal">
-                      <i class="ed far fa-edit"></i>
-                    </a>
-                  </span>
+                  <router-link
+                    v-bind:to="{name:'view-user', params:{users_id: users.users_id}}"
+                  >View</router-link>
                 </div>
               </td>
             </tr>
             <!-- Modal d'édition -->
-            <div
-              class="modal fade"
-              id="edModal"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modifier l'utilisateur</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <form method="POST" action="edit.php">
-                    <div class="modal-body">
-                      <div class="form-group">
-                        <label for="titre">Id :</label>
-                        <input type="text" class="form-control" name="titre" id="titre" />
-                      </div>
-                      <div class="form-group">
-                        <label for="titre">Name :</label>
-                        <input type="text" class="form-control" name="titre" id="titre" />
-                      </div>
-                      <div class="form-group">
-                        <label for="titre">email :</label>
-                        <input type="text" class="form-control" name="titre" id="titre" />
-                      </div>
-
-                      <input type="hidden" name="id_video" value />
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      <button type="submit" class="btn btn-primary" name="validate">Valider</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
           </tbody>
         </table>
-        <hr />
 
         <!-- Modal d'ajout -->
-        <div
-          class="modal fade"
-          id="addModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nouveau utilisateur</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <form method="POST" action="add.php">
-                <div class="modal-body">
-                  <div class="form-group">
-                    <label for="titre">User Id :</label>
-                    <input type="text" class="form-control" id="titre" />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="url">User Name :</label>
-                    <input type="text" class="form-control" id="url" />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="desc">User Email :</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                  <button type="submit" class="btn btn-primary" name="validate">Valider</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
       </main>
     </div>
   </div>

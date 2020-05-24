@@ -61,7 +61,7 @@
           <ul class="navbar-nav mr-auto">
             <template v-if="user.loggedIn">
               <li class="nav-item mr-auto">
-                 <router-link class="nav-link" to="/profil">{{user.data.email}}</router-link>
+                <router-link class="nav-link" to="/profil">{{user.data.email}}</router-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout" @click.prevent="signOut">Deconnexion</a>
@@ -92,10 +92,10 @@ import Home from "@/components/Home";
 import { mapGetters } from "vuex";
 import firebase from "firebase";
 export default {
-  data : ()=>{
+  data: () => {
     return {
-      users : []
-    }
+      users: []
+    };
   },
   components: {
     // eslint-disable-next-line vue/no-unused-components
@@ -105,7 +105,6 @@ export default {
     ...mapGetters({
       user: "user"
     })
-    
   },
   methods: {
     signOut() {
@@ -113,7 +112,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push('/login');
+          this.$router.push("/login");
         });
     }
   }
@@ -144,8 +143,8 @@ nav .nav-link:hover {
   color: white;
   text-decoration: none;
 }
-.logout:hover{
-  cursor:pointer;
+.logout:hover {
+  cursor: pointer;
 }
 .bg-danger {
   /*background-color: #dc3545!important;*/
