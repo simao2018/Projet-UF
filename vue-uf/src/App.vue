@@ -96,7 +96,7 @@ import firebase from "firebase";
 import db from "./components/firebaseInit";
 
 export default {
-  data : ()=>{
+  data: () => {
     return {
       users : [],
       currentUser : false,
@@ -143,7 +143,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push('/login');
+          this.$router.push("/login");
         });
     }
   }
@@ -174,8 +174,8 @@ nav .nav-link:hover {
   color: white;
   text-decoration: none;
 }
-.logout:hover{
-  cursor:pointer;
+.logout:hover {
+  cursor: pointer;
 }
 .bg-danger {
   /*background-color: #dc3545!important;*/
