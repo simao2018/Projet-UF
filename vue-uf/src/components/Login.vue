@@ -14,6 +14,8 @@
           v-model="password"
           required
         />
+        <input type="checkbox" name="terms" class="check-box" />
+        <div>Se souvenir de moi</div>
 
         <button type="button" v-on:click="submitLogin" class="submit-btn">Log In</button>
       </form>
@@ -43,8 +45,9 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then( user => {
-             console.log(user);
+        .then(
+          user => {
+            console.log(user);
             this.$router.push("/");
           },
           err => {
