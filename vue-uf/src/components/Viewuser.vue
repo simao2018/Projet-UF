@@ -9,7 +9,10 @@
           <h5 class="card-title">{{ users_name }}</h5>
           <p class="card-text">Email : {{ users_email }}</p>
           <router-link  to="/backoffice" class="btn btn-primary">Revenir en arriere</router-link>
-          <router-link @click="deleteUser" to="/backoffice" class="btn btn-danger" style="margin-left:30px;">Supprimer</router-link>
+  
+          <button @click="deleteUser" type="button" class="btn btn-danger" style = "margin-left:20px;">
+            <router-link to="/backoffice" class="btn btn-danger">Delete</router-link>
+          </button>
         </div>
       </div>
       <!-- <ul class="collection with-header">
