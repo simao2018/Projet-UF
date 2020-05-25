@@ -47,7 +47,7 @@ export default {
 
   created() {
     axios
-      .get("http://jsonplaceholder.typicode.com/posts")
+      .get("https://projet-uf-prod.web.app/posts")
       .then(response => {
         this.faqs = response.data.slice(0, 5);
       })

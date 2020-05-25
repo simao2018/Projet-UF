@@ -1,7 +1,18 @@
 <template>
   <div class="form-box">
     <div id="view-employee">
-      <ul class="collection with-header">
+      <div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ users_name }}</h5>
+          <p class="card-text">Email : {{ users_email }}</p>
+          <router-link  to="/backoffice" class="btn btn-primary">Revenir en arriere</router-link>
+          <router-link @click="deleteUser" to="/backoffice" class="btn btn-danger" style="margin-left:30px;">Supprimer</router-link>
+        </div>
+      </div>
+      <!-- <ul class="collection with-header">
         <li class="collection-header">
           <h4>{{users_name}}</h4>
         </li>
@@ -12,9 +23,9 @@
         <router-link to="/backoffice" class="btn grey">Back</router-link>
       </button>
 
-      <button @click="deleteUser" type="button" class="btn btn-secondary">
+      <button  type="button" class="btn btn-secondary">
         <router-link to="/backoffice" class="btn grey">Delete</router-link>
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
