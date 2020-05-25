@@ -48,7 +48,8 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">
               <template v-if="user.loggedIn">
-                <router-link to="/vendre">Vendre un livre</router-link>
+                <router-link 
+                  :to="{ name: 'vendre', params:{ id_login:currentId} }">Vendre un livre</router-link>
               </template>
               <span class="sr-only">(current)</span>
             </a>

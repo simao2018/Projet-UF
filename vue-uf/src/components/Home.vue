@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-sm-8">
                           <h5 class="card-title">{{livre.titre}}: {{ livre.livre_id }}</h5>
-                          <p class="card-text">{{livre.description}}</p>
+                          <p class="card-text">{{livre.description}} <br> {{ livre.prix_d }} €</p>
                           <router-link :to="{name: 'livre', params: {id_livre : livre.id_livre}}" class="btn btn-warning">Faire une offre</router-link>
                         </div>
                     </div>
@@ -66,7 +66,8 @@ export default {
               'id' : doc.id,
               'id_livre': doc.data().id_livre,
               'titre': doc.data().titre,
-              'description': doc.data().description
+              'description': doc.data().description,
+              'prix_d': doc.data().prix_depart
           }
           this.livres.push(data);
          // console.log(this.livres);

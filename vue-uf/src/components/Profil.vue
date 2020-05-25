@@ -7,7 +7,7 @@
         <div class="bg-white shadow rounded overflow-hidden">
             <div class="px-4 pt-0 pb-4 bg-dark">
                 <div class="media align-items-end profile-header">
-                    <div class="profile mr-3"><img src="https://pixabay.com/get/5fe7d6474c52b10ff3d89960c62d3e7e173ad9ec5159_640.png" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Mettre a jour profil</a></div>
+                    <div class="profile mr-3"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Mettre a jour profil</a></div>
                     <div class="media-body mb-5 text-white">
                         <h4 class="mt-0 mb-0">{{ users_name }}</h4>
                         <p class="small mb-4">{{ users_email }}</p>

@@ -35,7 +35,7 @@ const router = new VueRouter({
     { path: '/register', component: Register },
     { path: '/profil/:id_login', name: 'profil', component: Profil },
     { path: '/erreur', component: Erreur },
-    { path: '/vendre', component: Vendre },
+    { path: '/vendre/:id_login', name: 'vendre', component: Vendre },
     { path: '/backoffice', component: Backoffice },
     { path: '/viewuser/:idUser', name: 'view-user', component: Viewuser },
     { path: '/newuser', name: 'new-user', component: Newuser },

@@ -68,36 +68,40 @@ export default {
       description: null,
       prix_d : null,
       pdf : null,
+      url : null,
       uploadValue : null
     }
   },
   methods:{
 
     onfileSelected(event){
+      this.pdf_url = null;
       this.pdf = event.target.files[0]
       console.log(event);
     },
   
-
+  
     saveBook(){
-
+      this.pdf_url = null;
       const storageRef = firebase.storage().ref(`${this.pdf.name}`).put(this.pdf);
       storageRef.on(`state_changed`,snapshot=>{
           this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
       }, error=>{console.log(error.message)}, ()=>{this.uploadValue =100;
         storageRef.snapshot.ref.getDownloadURL().then((url)=>{
-          this.pdf = url;
+
+          this.pdf_url = url;
+          db.collection('Livres').add({
+          id_livre : this.id_livre,
+          titre : this.titre,
+          description : this.description,
+          url: url
+        }).then(docRef =>{ this.$router.push('/');console.log(docRef)}
+        ).catch(error =>console.log(error.message))
         })
       })
+      console.log(this.pdf_url);
 
-
-      db.collection('Livres').add({
-        id_livre : this.id_livre,
-        titre : this.titre,
-        description : this.description,
-        url: this.url  
-      }).then(docRef =>{ this.$router.push('/');console.log(docRef)}
-      ).catch(error =>console.log(error.message))
+      
     }
   }
 };
